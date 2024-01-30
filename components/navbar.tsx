@@ -5,9 +5,9 @@ import { UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { RefreshCcw } from "lucide-react";
 
-export default function NavBar() {
+export default function Navbar() {
   return (
-    <div className="p-4 shadow">
+    <div className="sticky top-0 z-50 w-full bg-white p-4 shadow">
       <div className="m-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
         <Link href="/dashboard" className="flex items-center gap-1">
           <Image src={logo} alt="AIDoprava logo" width={40} height={40} />
@@ -25,10 +25,10 @@ export default function NavBar() {
               },
             }}
           />
-          <Button>
+          {/* <Button>
             <RefreshCcw size={20} className="mr-2" />
             Refresh
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>
