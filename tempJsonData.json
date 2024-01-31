@@ -1,10 +1,42 @@
 [
   {
+    "MTXT": "Od 30.1.2024 21:20 do 31.1.2024 06:30; na silnici v obci Vrbice okres Karlovy Vary; Pozor! Nadměrný náklad; Pozor! Očekávejte zdržení; NN přeprava core bareel Plzeň - Lovosice.\nNN parametry: d 51,00 m; š 5,40m; v 5,60 m; hmotnost 217,80 t.\nPřepravní trasa: -AKTUÁLNĚ- NN odstaven v obci Bošov (pokračovat bude ve 22,00 hod.), Bošov  I/6 – II/606  – Libkovice – Lubenec II/606 - II/226 – Drahonice – Lužec – Vroutek  – Podbořany II/226 - II/221 - II/224 - II/226  – Pšov II/226 - I/27 – Sýrovice – Radíčeves - Žatec I/27  -II/225 –  Trnovany – Drahomyšl – Lipenec – Zeměchy – nájezd na D7 exit 49 - D7 sjezd exit 49 vpravo - I/28 – Louny  – Raná  – II/257 – Kozly  – I/15 – Libčeves – I/15 Želkovice – Třebívlice – Podsedice – Třebenice  – Jenčice – Čížkovice – Sulejovice –D8 - EXIT 48 – D8 – EXIT 45 –  II/247 - III/0089 – přístav Lovosice,",
+    "StartTime": "2024-01-30 21:20:00",
+    "EndTime": "2024-01-31 06:30:00",
+    "OTXT": "Pozor! Nadměrný náklad; Pozor! Očekávejte zdržení; NN přeprava core bareel Plzeň - Lovosice.\nNN parametry: d 51,00 m; š 5,40m; v 5,60 m; hmotnost 217,80 t.\nPřepravní trasa: -AKTUÁLNĚ- NN odstaven v obci Bošov (pokračovat bude ve 22,00 hod.), Bošov  I/6 – II/606  – Libkovice – Lubenec II/606 - II/226 – Drahonice – Lužec – Vroutek  – Podbořany II/226 - II/221 - II/224 - II/226  – Pšov II/226 - I/27 – Sýrovice – Radíčeves - Žatec I/27  -II/225 –  Trnovany – Drahomyšl – Lipenec – Zeměchy – nájezd na D7 exit 49 - D7 sjezd exit 49 vpravo - I/28 – Louny  – Raná  – II/257 – Kozly  – I/15 – Libčeves – I/15 Želkovice – Třebívlice – Podsedice – Třebenice  – Jenčice – Čížkovice – Sulejovice –D8 - EXIT 48 – D8 – EXIT 45 –  II/247 - III/0089 – přístav Lovosice,",
+    "TXPL": "na silnici v obci Vrbice okres Karlovy Vary",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 30.1.2024 21:10 do 23:15; v ulici Jičínská v obci Praha okres území Hlavního města Prahy; nehoda; 2 x OA bez zranění.",
+    "StartTime": "2024-01-30 21:10:00",
+    "EndTime": "2024-01-30 23:15:00",
+    "OTXT": "nehoda; 2 x OA bez zranění.",
+    "TXPL": "v ulici Jičínská v obci Praha okres území Hlavního města Prahy",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 30.1.2024 21:05 do 22:05; na silnici 38 u obce Doksy okres Česká Lípa; nehoda; probíhá vyšetřování nehody; 2 x OA bez zranění. Na místo PČR, pohyb osob na vozovce.",
+    "StartTime": "2024-01-30 21:05:00",
+    "EndTime": "2024-01-30 22:05:00",
+    "OTXT": "nehoda; probíhá vyšetřování nehody; 2 x OA bez zranění. Na místo PČR, pohyb osob na vozovce.",
+    "TXPL": "na silnici 38 u obce Doksy okres Česká Lípa",
+    "SBEG": {}
+  },
+  {
     "MTXT": "Od 30.1.2024 20:45 do 31.1.2024 02:50; D2 - 38km na trase Brno - Lanžhot; porouchané vozidlo, očekávejte zdržení; neprůjezdná zpevněná krajnice; defekt u NA.",
     "StartTime": "2024-01-30 20:45:00",
     "EndTime": "2024-01-31 02:50:00",
     "OTXT": "porouchané vozidlo, očekávejte zdržení; neprůjezdná zpevněná krajnice; defekt u NA.",
     "TXPL": "D2 - 38km na trase Brno - Lanžhot",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 30.1.2024 20:45 do 22:45; na silnici 327 v obci Žiželice okres Kolín; vážná nehoda; 2 x OA se zraněním.",
+    "StartTime": "2024-01-30 20:45:00",
+    "EndTime": "2024-01-30 22:45:00",
+    "OTXT": "vážná nehoda; 2 x OA se zraněním.",
+    "TXPL": "na silnici 327 v obci Žiželice okres Kolín",
     "SBEG": {}
   },
   {
@@ -64,30 +96,6 @@
     "SBEG": {}
   },
   {
-    "MTXT": "Od 30.1.2024 19:15 do 21:00; D5 - 71.3km na trase Rozvadov - Praha; porouchané vozidlo, očekávejte zdržení; neprůjezdná zpevněná krajnice",
-    "StartTime": "2024-01-30 19:15:00",
-    "EndTime": "2024-01-30 21:00:00",
-    "OTXT": "porouchané vozidlo, očekávejte zdržení; neprůjezdná zpevněná krajnice",
-    "TXPL": "D5 - 71.3km na trase Rozvadov - Praha",
-    "SBEG": {}
-  },
-  {
-    "MTXT": "Od 30.1.2024 19:05 do 21:10; v ulici Studentská v obci Olomouc; nehoda; 2 x OA bez zranění, s opatrností průjezdné.",
-    "StartTime": "2024-01-30 19:05:00",
-    "EndTime": "2024-01-30 21:10:00",
-    "OTXT": "nehoda; 2 x OA bez zranění, s opatrností průjezdné.",
-    "TXPL": "v ulici Studentská v obci Olomouc",
-    "SBEG": {}
-  },
-  {
-    "MTXT": "Od 30.1.2024 19:00 do 21:05; v ulici Kodaňská v obci Praha okres území Hlavního města Prahy; nehoda; 3 x OA bez zranění.",
-    "StartTime": "2024-01-30 19:00:00",
-    "EndTime": "2024-01-30 21:05:00",
-    "OTXT": "nehoda; 3 x OA bez zranění.",
-    "TXPL": "v ulici Kodaňská v obci Praha okres území Hlavního města Prahy",
-    "SBEG": {}
-  },
-  {
     "MTXT": "Od 30.1.2024 18:40 do 23:45; na silnici 428 u obce Ivanovice na Hané okres Vyškov; nehoda; probíhá vyšetřování nehody; 3 x OA se zraněním. Na místě složky IZS.",
     "StartTime": "2024-01-30 18:40:00",
     "EndTime": "2024-01-30 23:45:00",
@@ -96,18 +104,18 @@
     "SBEG": {}
   },
   {
-    "MTXT": "Od 30.1.2024 18:20 do 31.1.2024 00:20; D1 - 188-195.9km na trase Praha - Říkovice; tvorba kolon vozidel, nebezpečí dopravního kolapsu",
+    "MTXT": "Od 30.1.2024 18:20 do 21:35; D1 - 188-195.9km na trase Praha - Říkovice; žádné problémy k hlášení",
     "StartTime": "2024-01-30 18:20:00",
-    "EndTime": "2024-01-31 00:20:00",
-    "OTXT": "tvorba kolon vozidel, nebezpečí dopravního kolapsu",
+    "EndTime": "2024-01-30 21:35:00",
+    "OTXT": "žádné problémy k hlášení",
     "TXPL": "D1 - 188-195.9km na trase Praha - Říkovice",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 30.1.2024 18:20 do 31.1.2024 00:20; D1 - 188-195.9km na trase Praha - Říkovice; tvorba kolon vozidel, nebezpečí dopravního kolapsu",
+    "MTXT": "Od 30.1.2024 18:20 do 21:35; D1 - 188-195.9km na trase Praha - Říkovice; žádné problémy k hlášení",
     "StartTime": "2024-01-30 18:20:00",
-    "EndTime": "2024-01-31 00:20:00",
-    "OTXT": "tvorba kolon vozidel, nebezpečí dopravního kolapsu",
+    "EndTime": "2024-01-30 21:35:00",
+    "OTXT": "žádné problémy k hlášení",
     "TXPL": "D1 - 188-195.9km na trase Praha - Říkovice",
     "SBEG": {}
   },
@@ -149,14 +157,6 @@
     "EndTime": "2024-01-31 08:00:00",
     "OTXT": "bahno na vozovce; sjízdné se zvýšenou opatrností; znečištěná vozovka v důsledku vysypané hlíny .",
     "TXPL": "na silnici 308 u obce České Meziříčí okres Rychnov nad Kněžnou",
-    "SBEG": {}
-  },
-  {
-    "MTXT": "Od 30.1.2024 00:20 do 31.1.2024 06:30; na silnici v obci Vrbice okres Karlovy Vary; Aktuálně: NN odstaven II/606 v obci Bošov, bude pokračovat 30.1. ve 22,00 hod dle harmonogramu.; Pozor! Nadměrný náklad; Pozor! Očekávejte zdržení; NN přeprava core bareel Plzeň - Lovosice.\nNN parametry: d 51,00 m; š 5,40m; v 5,60 m; hmotnost 217,80 t.\nPřepravní trasa: Plzeň – Lovosice\nBošov  I/6 – II/606  – Libkovice – Lubenec II/606 - II/226 – Drahonice – Lužec – Vroutek  – Podbořany II/226 - II/221 - II/224 - II/226  – Pšov II/226 - I/27 – Sýrovice – Radíčeves - Žatec I/27  -II/225 –  Trnovany – Drahomyšl – Lipenec – Zeměchy – nájezd na D7 exit 49 - D7 sjezd exit 49 vpravo - I/28 – Louny  – Raná  – II/257 – Kozly  – I/15 – Libčeves – I/15 Želkovice – Třebívlice – Podsedice – Třebenice  – Jenčice – Čížkovice – Sulejovice –D8 - EXIT 48 – D8 – EXIT 45 –  II/247 - III/0089 – přístav Lovosice,",
-    "StartTime": "2024-01-30 00:20:00",
-    "EndTime": "2024-01-31 06:30:00",
-    "OTXT": "Pozor! Nadměrný náklad; Pozor! Očekávejte zdržení; NN přeprava core bareel Plzeň - Lovosice.\nNN parametry: d 51,00 m; š 5,40m; v 5,60 m; hmotnost 217,80 t.\nPřepravní trasa: Plzeň – Lovosice\nBošov  I/6 – II/606  – Libkovice – Lubenec II/606 - II/226 – Drahonice – Lužec – Vroutek  – Podbořany II/226 - II/221 - II/224 - II/226  – Pšov II/226 - I/27 – Sýrovice – Radíčeves - Žatec I/27  -II/225 –  Trnovany – Drahomyšl – Lipenec – Zeměchy – nájezd na D7 exit 49 - D7 sjezd exit 49 vpravo - I/28 – Louny  – Raná  – II/257 – Kozly  – I/15 – Libčeves – I/15 Želkovice – Třebívlice – Podsedice – Třebenice  – Jenčice – Čížkovice – Sulejovice –D8 - EXIT 48 – D8 – EXIT 45 –  II/247 - III/0089 – přístav Lovosice,",
-    "TXPL": "na silnici v obci Vrbice okres Karlovy Vary; Aktuálně: NN odstaven II/606 v obci Bošov, bude pokračovat 30.1. ve 22,00 hod dle harmonogramu.",
     "SBEG": {}
   },
   {
