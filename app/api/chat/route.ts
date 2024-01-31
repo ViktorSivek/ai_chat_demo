@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 import * as dotenv from "dotenv";
-import type { NextApiRequest } from "next";
+import type { NextRequest } from "next/server";
 import fs from "fs";
 
 dotenv.config();
@@ -9,9 +9,15 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-export async function POST(req: NextApiRequest) {
+export async function POST(request: NextRequest) {
   try {
-    const body = await req.body.getReader().read();
+    if (!request.body) {
+      // Handle the case where there is no body
+      // You might want to return an error or a specific response
+      return new Response("No request body", { status: 400 });
+    }
+
+    const body = await request.body.getReader().read();
     const decodedBody = new TextDecoder().decode(body.value);
     let { message, jsonData } = JSON.parse(decodedBody);
 
