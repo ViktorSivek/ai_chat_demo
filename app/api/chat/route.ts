@@ -63,16 +63,33 @@ export async function POST(request: NextRequest) {
       jsonData = filePath; // Update jsonData to be the file path
     }
 
+
+    try {
+      const newFile = await openai.files.create({
+        file: fs.createReadStream(jsonData),
+        purpose: "assistants",
+      });
+
+      await openai.beta.assistants.files.create(assistantId, {
+        file_id: newFile.id,
+      });
+      // Continue with your logic...
+    } catch (error) {
+      console.error("File operation or OpenAI API error:", error);
+      // Handle the error appropriately
+    }
+
+
     // Upload a new file
-    const newFile = await openai.files.create({
-      file: fs.createReadStream(jsonData),
-      purpose: "assistants",
-    });
+    // const newFile = await openai.files.create({
+    //   file: fs.createReadStream(jsonData),
+    //   purpose: "assistants",
+    // });
 
     // Attach the new file to the assistant
-    await openai.beta.assistants.files.create(assistantId, {
-      file_id: newFile.id,
-    });
+    // await openai.beta.assistants.files.create(assistantId, {
+    //   file_id: newFile.id,
+    // });
 
     const thread = await openai.beta.threads.create();
 
