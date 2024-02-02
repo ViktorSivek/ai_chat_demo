@@ -10,7 +10,6 @@ const openai = new OpenAI({
 });
 
 export async function POST(request: NextRequest) {
-  console.log("ted jsem v api pred try");
   try {
     if (!request.body) {
       // Handle the case where there is no body
@@ -44,14 +43,16 @@ export async function POST(request: NextRequest) {
       });
       assistantId = assistant.id;
       process.env.ASSISTANT_ID = assistantId; // Store the assistant ID for future use
-      console.log("assistant:", assistant)
     }
 
     // Retrieve the list of files currently attached to the assistant
     const assistantFiles = await openai.beta.assistants.files.list(assistantId);
 
+    console.log("assistantFiles", assistantFiles);
+
     // Delete the old files
     for (const file of assistantFiles.data) {
+      console.log("delete", file);
       await openai.beta.assistants.files.del(assistantId, file.id);
     }
 
@@ -61,6 +62,7 @@ export async function POST(request: NextRequest) {
       const filePath = "./tempJsonData.json"; // Temporary file path
       fs.writeFileSync(filePath, jsonData);
       jsonData = filePath; // Update jsonData to be the file path
+      console.log("jsonData" ,jsonData);
     }
 
 
@@ -73,6 +75,7 @@ export async function POST(request: NextRequest) {
       await openai.beta.assistants.files.create(assistantId, {
         file_id: newFile.id,
       });
+      console.log("newFile", newFile);
       // Continue with your logic...
     } catch (error) {
       console.error("File operation or OpenAI API error:", error);
@@ -93,15 +96,21 @@ export async function POST(request: NextRequest) {
 
     const thread = await openai.beta.threads.create();
 
+    console.log("thred", thread);
+
     const threadMessage = await openai.beta.threads.messages.create(thread.id, {
       role: "user",
       content: message,
     });
 
+    console.log("threadMessage", threadMessage);
+
     // Create the run
     const run = await openai.beta.threads.runs.create(thread.id, {
       assistant_id: assistantId,
     });
+
+    console.log("run", run);
 
     // Poll for the response
     let runResult;
