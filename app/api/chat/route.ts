@@ -57,25 +57,38 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if jsonData is a file path or actual data
-    if (typeof jsonData === "string") {
-      // Assuming jsonData is a JSON string, write it to a file
-      const filePath = "./tempJsonData.json"; // Temporary file path
-      fs.writeFileSync(filePath, jsonData);
-      jsonData = filePath; // Update jsonData to be the file path
-      console.log("jsonData" ,jsonData);
-    }
+    // if (typeof jsonData === "string") {
+    //   console.log("jsonData" ,jsonData);
+    //   // Assuming jsonData is a JSON string, write it to a file
+    //   const filePath = "./tempJsonData.json"; // Temporary file path
+    //   fs.writeFileSync(filePath, jsonData);
+    //   jsonData = filePath; // Update jsonData to be the file path
+    //   console.log("jsonData" ,jsonData);
+    // }
 
 
     try {
+      // Check if jsonData is a file path or actual data
+      if (typeof jsonData === "string") {
+        console.log("jsonData" ,jsonData);
+        // Assuming jsonData is a JSON string, write it to a file
+        const filePath = "./tempJsonData.json"; // Temporary file path
+        fs.writeFileSync(filePath, jsonData);
+        jsonData = filePath; // Update jsonData to be the file path
+        console.log("jsonData" ,jsonData);
+      }
+
       const newFile = await openai.files.create({
         file: fs.createReadStream(jsonData),
         purpose: "assistants",
       });
 
+      console.log("newFile", newFile);
+
       await openai.beta.assistants.files.create(assistantId, {
         file_id: newFile.id,
       });
-      console.log("newFile", newFile);
+
       // Continue with your logic...
     } catch (error) {
       console.error("File operation or OpenAI API error:", error);
