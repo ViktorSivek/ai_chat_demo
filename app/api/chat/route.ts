@@ -20,6 +20,8 @@ export async function POST(request: NextRequest) {
     const body = await request.body.getReader().read();
     const decodedBody = new TextDecoder().decode(body.value);
     let { message, jsonData } = JSON.parse(decodedBody);
+    const sendingData = { message, jsonData };
+    console.log(sendingData);
 
     if (!message) {
       return new Response(JSON.stringify({ error: "Message is empty" }), {
@@ -41,6 +43,7 @@ export async function POST(request: NextRequest) {
       });
       assistantId = assistant.id;
       process.env.ASSISTANT_ID = assistantId; // Store the assistant ID for future use
+      console.log("assistant:", assistant)
     }
 
     // Retrieve the list of files currently attached to the assistant
@@ -131,6 +134,8 @@ export async function POST(request: NextRequest) {
     }
 
     const apiResponse = { response: assistantResponseText };
+
+    console.log(apiResponse);
 
     return new Response(JSON.stringify(apiResponse), {
       status: 200,

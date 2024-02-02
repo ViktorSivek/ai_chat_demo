@@ -15,6 +15,7 @@ interface ChatWindowProps {
 const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleMessageChange = (event: any) => {
     setMessage(event.target.value);
@@ -23,6 +24,7 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     if (message.trim()) {
+      setIsLoading(true);
       setChatHistory((chatHistory) => [
         ...chatHistory,
         { type: "question", text: message },
@@ -53,6 +55,8 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
         setMessage("");
       } catch (error) {
         console.error("Failed to send message:", error);
+      } finally {
+        setIsLoading(false); // End loading
       }
     }
   };
@@ -89,8 +93,8 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
             value={message}
             onChange={handleMessageChange}
           />
-          <button className="ml-3 rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
-            Send
+          <button className="ml-3 rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600" disabled={isLoading}>
+            {isLoading ? 'Sending...' : 'Send'}
           </button>
         </form>
       </div>

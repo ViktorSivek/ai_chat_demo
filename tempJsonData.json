@@ -1,0 +1,162 @@
+[
+  {
+    "MTXT": "Od 2.2.2024 00:00 do 01:00; na silnici v obci Kroměříž , délka 70m; nehoda; probíhá vyšetřování nehody, nebezpečí; překážka, která může bránit provozu v celé šířce vozovky nebo její části; havárie vozidla mimo komunikaci",
+    "StartTime": "2024-02-02 00:00:00",
+    "EndTime": "2024-02-02 01:00:00",
+    "OTXT": "nehoda; probíhá vyšetřování nehody, nebezpečí; překážka, která může bránit provozu v celé šířce vozovky nebo její části; havárie vozidla mimo komunikaci",
+    "TXPL": "na silnici v obci Kroměříž , délka 70m",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 23:55 do 2.2.2024 00:55; v ulici Vyšenská v obci Český Krumlov; nehoda; havárie OA do pouliční lampy a plotu, PČR na místo",
+    "StartTime": "2024-02-01 23:55:00",
+    "EndTime": "2024-02-02 00:55:00",
+    "OTXT": "nehoda; havárie OA do pouliční lampy a plotu, PČR na místo",
+    "TXPL": "v ulici Vyšenská v obci Český Krumlov",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 23:45 do 2.2.2024 00:45; na silnici 1423 u obce Čepřovice okres Strakonice; Pozor! 3 padlé stromy; padlé stromy přes silnici",
+    "StartTime": "2024-02-01 23:45:00",
+    "EndTime": "2024-02-02 00:45:00",
+    "OTXT": "Pozor! 3 padlé stromy; padlé stromy přes silnici",
+    "TXPL": "na silnici 1423 u obce Čepřovice okres Strakonice",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 23:25 do 2.2.2024 01:30; na silnici 36028 v obci Horní Újezd okres Svitavy; nehoda; probíhá vyšetřování nehody, nebezpečí; Havárie OA, se zraněním.",
+    "StartTime": "2024-02-01 23:25:00",
+    "EndTime": "2024-02-02 01:30:00",
+    "OTXT": "nehoda; probíhá vyšetřování nehody, nebezpečí; Havárie OA, se zraněním.",
+    "TXPL": "na silnici 36028 v obci Horní Újezd okres Svitavy",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 23:25 do 2.2.2024 00:25; na silnici u obce Myslín okres Písek; nehoda; havárie OA, 2x zranění, vozidlo na střeše. PČR, HZS a ZZS jedou na místo",
+    "StartTime": "2024-02-01 23:25:00",
+    "EndTime": "2024-02-02 00:25:00",
+    "OTXT": "nehoda; havárie OA, 2x zranění, vozidlo na střeše. PČR, HZS a ZZS jedou na místo",
+    "TXPL": "na silnici u obce Myslín okres Písek",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 23:15 do 2.2.2024 01:20; v ulici Královéhradecká v obci Ústí nad Orlicí; nehoda; probíhá vyšetřování nehody, nebezpečí; Havárie OA, bez zranění",
+    "StartTime": "2024-02-01 23:15:00",
+    "EndTime": "2024-02-02 01:20:00",
+    "OTXT": "nehoda; probíhá vyšetřování nehody, nebezpečí; Havárie OA, bez zranění",
+    "TXPL": "v ulici Královéhradecká v obci Ústí nad Orlicí",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 23:05 do 2.2.2024 01:10; na silnici 409 v obci Planá nad Lužnicí okres Tábor; nehoda; havárie OA, řidič na místě údajně není, PČR jede na místo",
+    "StartTime": "2024-02-01 23:05:00",
+    "EndTime": "2024-02-02 01:10:00",
+    "OTXT": "nehoda; havárie OA, řidič na místě údajně není, PČR jede na místo",
+    "TXPL": "na silnici 409 v obci Planá nad Lužnicí okres Tábor",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 23:00 do 2.2.2024 10:00; na silnici 20 u obce Úněšov okres Plzeň-sever; I/20; nadměrný náklad; mimořádná událost, očekávejte silný provoz; NN Plzeň - Lovosice - jedna souprava\nParametry NN: d- 31,00m, š- 3,70m, v- 4,70m, hm-177,50t\nZbývající přepravní trasa: Plzeň – Lovosice\nI/20 - Bezvěrov - Toužim - II/198 - Kozlov - Bochov  I/6 - Herstošice - Bošov D6 - exit 77 - II/226  I/27 - Radíčeves - Žatec - vpravo II/225 - Trnovany - Louny I/28 - Raná -  II/257 Kozly -  I/15 - Libčeves - Třebenice - Lovosice - D8 - exit 45 - II/247 -  Lovosice přístav.",
+    "StartTime": "2024-02-01 23:00:00",
+    "EndTime": "2024-02-02 10:00:00",
+    "OTXT": "nadměrný náklad; mimořádná událost, očekávejte silný provoz; NN Plzeň - Lovosice - jedna souprava\nParametry NN: d- 31,00m, š- 3,70m, v- 4,70m, hm-177,50t\nZbývající přepravní trasa: Plzeň – Lovosice\nI/20 - Bezvěrov - Toužim - II/198 - Kozlov - Bochov  I/6 - Herstošice - Bošov D6 - exit 77 - II/226  I/27 - Radíčeves - Žatec - vpravo II/225 - Trnovany - Louny I/28 - Raná -  II/257 Kozly -  I/15 - Libčeves - Třebenice - Lovosice - D8 - exit 45 - II/247 -  Lovosice přístav.",
+    "TXPL": "na silnici 20 u obce Úněšov okres Plzeň-sever; I/20",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 22:55 do 2.2.2024 01:00; na silnici 11 u obce Bruntál; nehoda; srážka OA se zvěří, bez zranění",
+    "StartTime": "2024-02-01 22:55:00",
+    "EndTime": "2024-02-02 01:00:00",
+    "OTXT": "nehoda; srážka OA se zvěří, bez zranění",
+    "TXPL": "na silnici 11 u obce Bruntál",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 22:20 do 2.2.2024 00:20; na silnici 436 u obce Věžky okres Přerov; mezi Věžkami a Vlkoší; nehoda; OA mimo komunikaci",
+    "StartTime": "2024-02-01 22:20:00",
+    "EndTime": "2024-02-02 00:20:00",
+    "OTXT": "nehoda; OA mimo komunikaci",
+    "TXPL": "na silnici 436 u obce Věžky okres Přerov; mezi Věžkami a Vlkoší",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 22:15 do 2.2.2024 00:20; na silnici 112 u obce Vlašim okres Benešov; nehoda; havárie OA do příkopu, průjezd s opatrností",
+    "StartTime": "2024-02-01 22:15:00",
+    "EndTime": "2024-02-02 00:20:00",
+    "OTXT": "nehoda; havárie OA do příkopu, průjezd s opatrností",
+    "TXPL": "na silnici 112 u obce Vlašim okres Benešov",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 1.2.2024 15:15 do 2.2.2024 15:25; na silnici 324 v obci Staré Hradiště okres Pardubice , délka 61m; obec Hradiště na Písku směr Staré Hradiště.; Pozor! Olej na vozovce; očekávejte kluzkou vozovku; probíhají odklízecí práce; rozlitý olej na vozovce.",
+    "StartTime": "2024-02-01 15:15:00",
+    "EndTime": "2024-02-02 15:25:00",
+    "OTXT": "Pozor! Olej na vozovce; očekávejte kluzkou vozovku; probíhají odklízecí práce; rozlitý olej na vozovce.",
+    "TXPL": "na silnici 324 v obci Staré Hradiště okres Pardubice , délka 61m; obec Hradiště na Písku směr Staré Hradiště.",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 19.1.2024 11:50 do 31.3.2024 23:55; na silnici 2523 u obce Blatno okres Chomutov , délka 318m; uzavřeno, mimořádná událost; polomy - popadané stromy.",
+    "StartTime": "2024-01-19 11:50:00",
+    "EndTime": "2024-03-31 23:55:00",
+    "OTXT": "uzavřeno, mimořádná událost; polomy - popadané stromy.",
+    "TXPL": "na silnici 2523 u obce Blatno okres Chomutov , délka 318m",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 12.1.2024 02:00 do 1.3.2024 00:00; v ulici Dukelských hrdinů v obci Praha okres území Hlavního města Prahy , délka 29m; práce na údržbě mostu; uzavřeno; průjezd tramvajím MHD a vozidlům IZS povolen.",
+    "StartTime": "2024-01-12 02:00:00",
+    "EndTime": "2024-03-01 00:00:00",
+    "OTXT": "práce na údržbě mostu; uzavřeno; průjezd tramvajím MHD a vozidlům IZS povolen.",
+    "TXPL": "v ulici Dukelských hrdinů v obci Praha okres území Hlavního města Prahy , délka 29m",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 9.1.2024 09:25 do 29.2.2024 20:00; na silnici 4932 v obcích Vizovice a Loučka okres Zlín , délka 5.2km; silnice z Vizovic do Loučky přes kopec; očekávejte kluzkou vozovku; ledovka; Silnice se v zimě neudržuje.",
+    "StartTime": "2024-01-09 09:25:00",
+    "EndTime": "2024-02-29 20:00:00",
+    "OTXT": "očekávejte kluzkou vozovku; ledovka; Silnice se v zimě neudržuje.",
+    "TXPL": "na silnici 4932 v obcích Vizovice a Loučka okres Zlín , délka 5.2km; silnice z Vizovic do Loučky přes kopec",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 29.11.2023 15:00 do 30.3.2024 15:05; na silnici 2487 u obce Krupka okres Teplice , délka 2.2km; sněhové jazyky v polohách nad 300 m.n.m.; neprůjezdná komunikace; sníh na vozovce; silnice se v zimě neudržuje.",
+    "StartTime": "2023-11-29 15:00:00",
+    "EndTime": "2024-03-30 15:05:00",
+    "OTXT": "sněhové jazyky v polohách nad 300 m.n.m.; neprůjezdná komunikace; sníh na vozovce; silnice se v zimě neudržuje.",
+    "TXPL": "na silnici 2487 u obce Krupka okres Teplice , délka 2.2km",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 29.11.2023 14:55 do 30.3.2024 15:00; na silnici 2484 u obce Telnice okres Ústí nad Labem , délka 2.3km; sněhové jazyky v polohách nad 300 m.n.m.; uzavřeno; v zimním období součástí sjezdových tratí.",
+    "StartTime": "2023-11-29 14:55:00",
+    "EndTime": "2024-03-30 15:00:00",
+    "OTXT": "sněhové jazyky v polohách nad 300 m.n.m.; uzavřeno; v zimním období součástí sjezdových tratí.",
+    "TXPL": "na silnici 2484 u obce Telnice okres Ústí nad Labem , délka 2.3km",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 29.11.2023 09:50 do 1.3.2024 00:00; v ulici Dukelských hrdinů v obci Praha okres území Hlavního města Prahy , délka 145m; ve směru do centra; práce na silnici; jízdní pruh uzavřen; provoz po tramvajových kolejích.",
+    "StartTime": "2023-11-29 09:50:00",
+    "EndTime": "2024-03-01 00:00:00",
+    "OTXT": "práce na silnici; jízdní pruh uzavřen; provoz po tramvajových kolejích.",
+    "TXPL": "v ulici Dukelských hrdinů v obci Praha okres území Hlavního města Prahy , délka 145m; ve směru do centra",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 18.11.2023 15:25 do 31.3.2024 12:00; na silnici 56 mezi obcemi Bílá a Ostravice okres Frýdek-Místek , délka 20km; uzavřeno pro těžká nákladní vozidla nad 12 tun",
+    "StartTime": "2023-11-18 15:25:00",
+    "EndTime": "2024-03-31 12:00:00",
+    "OTXT": "uzavřeno pro těžká nákladní vozidla nad 12 tun",
+    "TXPL": "na silnici 56 mezi obcemi Bílá a Ostravice okres Frýdek-Místek , délka 20km",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 18.11.2023 15:25 do 31.3.2024 12:00; na silnici 56 mezi obcemi Bílá a Ostravice okres Frýdek-Místek , délka 20km; uzavřeno pro těžká nákladní vozidla nad 12 tun",
+    "StartTime": "2023-11-18 15:25:00",
+    "EndTime": "2024-03-31 12:00:00",
+    "OTXT": "uzavřeno pro těžká nákladní vozidla nad 12 tun",
+    "TXPL": "na silnici 56 mezi obcemi Bílá a Ostravice okres Frýdek-Místek , délka 20km",
+    "SBEG": {}
+  }
+]
