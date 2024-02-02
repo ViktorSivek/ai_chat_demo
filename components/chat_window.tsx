@@ -30,6 +30,8 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
         { type: "question", text: message },
       ]);
 
+      console.log("co submituju pred api fetch", message);
+
       try {
         const response = await fetch("/api/chat", {
           method: "POST",

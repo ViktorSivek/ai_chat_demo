@@ -10,6 +10,7 @@ const openai = new OpenAI({
 });
 
 export async function POST(request: NextRequest) {
+  console.log("ted jsem v api pred try");
   try {
     if (!request.body) {
       // Handle the case where there is no body
