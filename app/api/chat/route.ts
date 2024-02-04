@@ -69,31 +69,39 @@ export async function POST(request: NextRequest) {
 
     try {
       // Check if jsonData is a file path or actual data
-      if (typeof jsonData === "string") {
-        console.log("jsonData" ,jsonData);
-        // Assuming jsonData is a JSON string, write it to a file
-        const filePath = "./tempJsonData.json"; // Temporary file path
-        fs.writeFileSync(filePath, jsonData);
-        jsonData = filePath; // Update jsonData to be the file path
-        console.log("jsonData" ,jsonData);
-      }
+      let filePath = jsonData;
+      if (typeof jsonData === "object") { // If jsonData is an object, convert to string
+          console.log("jsonData is an object, converting to string and writing to file");
+          filePath = "/tmp/tempJsonData.json"; // Temporary file path in a writable directory
+          fs.writeFileSync(filePath, JSON.stringify(jsonData));
+          console.log("File written to", filePath);
+      } else if (typeof jsonData === "string" && !jsonData.startsWith("/tmp/")) {
+          // This condition assumes jsonData is a string that needs to be written to a file
+          console.log("jsonData is a string, writing to file");
+          filePath = "/tmp/tempJsonData.json"; // Use a fixed or dynamically generated path as needed
+          fs.writeFileSync(filePath, jsonData);
+          console.log("File written to", filePath);
+      } // If jsonData is a string that already points to a file path (especially under /tmp), no action needed.
 
+      // Use the filePath with fs.createReadStream for the OpenAI API
       const newFile = await openai.files.create({
-        file: fs.createReadStream(jsonData),
-        purpose: "assistants",
+          file: fs.createReadStream(filePath),
+          purpose: "assistants",
       });
 
-      console.log("newFile", newFile);
+      console.log("New file created with ID:", newFile.id);
 
-      await openai.beta.assistants.files.create(assistantId, {
-        file_id: newFile.id,
+      const assistantFile = await openai.beta.assistants.files.create(assistantId, {
+          file_id: newFile.id,
       });
+
+      console.log("Assistant file created:", assistantFile);
 
       // Continue with your logic...
-    } catch (error) {
+  } catch (error) {
       console.error("File operation or OpenAI API error:", error);
       // Handle the error appropriately
-    }
+  }
 
 
     // Upload a new file
