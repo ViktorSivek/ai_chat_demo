@@ -133,25 +133,26 @@ export async function POST(request: NextRequest) {
 
     console.log("run", run);
 
-    // Poll for the response
-    let runResult;
+    // Increase timeout to 60 seconds for more leeway
+    const timeout = 60000; // 60 seconds timeout
     const startTime = Date.now();
-    const timeout = 30000; // 30 seconds timeout
+
+    let runResult;
     while (Date.now() - startTime < timeout) {
-      const currentRun = await openai.beta.threads.runs.retrieve(
-        thread.id,
-        run.id,
-      );
+      const currentRun = await openai.beta.threads.runs.retrieve(thread.id, run.id);
       if (currentRun.status === "completed") {
         runResult = currentRun;
-        break;
+        break; // Exit the loop if the run is completed
       } else if (currentRun.status === "failed") {
+        console.error("Run failed with error:", currentRun.last_error);
         throw new Error("Run failed");
       }
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second before polling again
+      // Poll less frequently to reduce load and wait patiently for completion
+      await new Promise((resolve) => setTimeout(resolve, 3000)); // Wait for 3 seconds before polling again
     }
 
     if (!runResult) {
+      console.error("Run did not complete in time. Current run status:", run.status);
       throw new Error("Run did not complete in time");
     }
 
