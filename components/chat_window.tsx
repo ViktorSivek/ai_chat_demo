@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { setupAssistant, processMessage, checkStatusAndRetrieve } from '@/utils/apiHelper';
 
 type ChatMessage = {
   type: "question" | "response";
@@ -33,19 +33,16 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
       console.log("co submituju pred api fetch", message);
 
       try {
-        const response = await fetch("/api/chat", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ message, jsonData }),
-        });
 
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
+        // Step 1: Setup
+        const { assistantId, fileId } = await setupAssistant(jsonData);
 
-        const responseData = await response.json();
+        // Step 2: Process Message
+        const { threadId, runId } = await processMessage({ message, assistantId, fileId });
+
+        // Step 3: Check Status and Retrieve Response
+        const responseData = await checkStatusAndRetrieve({ threadId, runId });
+
         console.log("Response data received:", responseData);
 
         setChatHistory((chatHistory) => [
@@ -55,6 +52,30 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
 
         // Clear the input after sending
         setMessage("");
+
+
+        // const response = await fetch("/api/chat", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({ message, jsonData }),
+        // });
+
+        // if (!response.ok) {
+        //   throw new Error(`Error: ${response.status}`);
+        // }
+
+        // const responseData = await response.json();
+        // console.log("Response data received:", responseData);
+
+        // setChatHistory((chatHistory) => [
+        //   ...chatHistory,
+        //   { type: "response", text: responseData.response },
+        // ]);
+
+        // // Clear the input after sending
+        // setMessage("");
       } catch (error) {
         console.error("Failed to send message:", error);
       } finally {
