@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 import * as dotenv from "dotenv";
-import type { NextApiRequest } from "next";
+import type { NextRequest } from "next/server";
 import fs from "fs";
 
 dotenv.config();
@@ -9,11 +9,19 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-export async function POST(req: NextApiRequest) {
+export async function POST(request: NextRequest) {
   try {
-    const body = await req.body.getReader().read();
+    if (!request.body) {
+      // Handle the case where there is no body
+      // You might want to return an error or a specific response
+      return new Response("No request body", { status: 400 });
+    }
+
+    const body = await request.body.getReader().read();
     const decodedBody = new TextDecoder().decode(body.value);
     let { message, jsonData } = JSON.parse(decodedBody);
+    const sendingData = { message, jsonData };
+    console.log("sendingData", sendingData);
 
     if (!message) {
       return new Response(JSON.stringify({ error: "Message is empty" }), {
@@ -40,61 +48,109 @@ export async function POST(req: NextApiRequest) {
     // Retrieve the list of files currently attached to the assistant
     const assistantFiles = await openai.beta.assistants.files.list(assistantId);
 
+    console.log("assistantFiles", assistantFiles);
+
     // Delete the old files
     for (const file of assistantFiles.data) {
+      console.log("delete", file);
       await openai.beta.assistants.files.del(assistantId, file.id);
     }
 
-    // Check if jsonData is a file path or actual data
-    if (typeof jsonData === "string") {
-      // Assuming jsonData is a JSON string, write it to a file
-      const filePath = "./tempJsonData.json"; // Temporary file path
-      fs.writeFileSync(filePath, jsonData);
-      jsonData = filePath; // Update jsonData to be the file path
+
+
+
+
+    try {
+      const fs = require('fs');
+
+      const filename = 'tempJsonData.json';
+      const tempFilePath = `/tmp/${filename}`;
+
+      fs.writeFileSync(tempFilePath, jsonData);
+
+      const newFile = await openai.files.create({
+        file: fs.createReadStream(tempFilePath),
+        purpose: "assistants",
+      });
+
+      fs.unlinkSync(tempFilePath);
+
+      console.log("newFile" ,newFile);
+
+      await openai.beta.assistants.files.create(assistantId, {
+        file_id: newFile.id,
+      });
+
+
+    } catch (error) {
+        console.error("File operation or OpenAI API error:", error);
     }
 
-    // Upload a new file
-    const newFile = await openai.files.create({
-      file: fs.createReadStream(jsonData),
-      purpose: "assistants",
-    });
 
-    // Attach the new file to the assistant
-    await openai.beta.assistants.files.create(assistantId, {
-      file_id: newFile.id,
-    });
+
+    // try {
+
+    //   if (typeof jsonData === "string") {
+    //     // Assuming jsonData is a JSON string, write it to a file
+    //     const filePath = "./tempJsonData.json"; // Temporary file path
+    //     fs.writeFileSync(filePath, jsonData);
+    //     jsonData = filePath; // Update jsonData to be the file path
+    //     console.log("jsonData" ,jsonData);
+    //   }
+
+    //   const newFile = await openai.files.create({
+    //     file: fs.createReadStream(jsonData),
+    //     purpose: "assistants",
+    //   });
+
+    //   console.log("newFile" ,newFile);
+
+    //   await openai.beta.assistants.files.create(assistantId, {
+    //     file_id: newFile.id,
+    //   });
+
+    // } catch (error) {
+    //     console.error("File operation or OpenAI API error:", error);
+    // }
 
     const thread = await openai.beta.threads.create();
+
+    console.log("thred", thread);
 
     const threadMessage = await openai.beta.threads.messages.create(thread.id, {
       role: "user",
       content: message,
     });
 
+    console.log("threadMessage", threadMessage);
+
     // Create the run
     const run = await openai.beta.threads.runs.create(thread.id, {
       assistant_id: assistantId,
     });
 
-    // Poll for the response
-    let runResult;
+    console.log("run", run);
+
+    // Increase timeout to 60 seconds for more leeway
+    const timeout = 60000; // 60 seconds timeout
     const startTime = Date.now();
-    const timeout = 30000; // 30 seconds timeout
+
+    let runResult;
     while (Date.now() - startTime < timeout) {
-      const currentRun = await openai.beta.threads.runs.retrieve(
-        thread.id,
-        run.id,
-      );
+      const currentRun = await openai.beta.threads.runs.retrieve(thread.id, run.id);
       if (currentRun.status === "completed") {
         runResult = currentRun;
-        break;
+        break; // Exit the loop if the run is completed
       } else if (currentRun.status === "failed") {
+        console.error("Run failed with error:", currentRun.last_error);
         throw new Error("Run failed");
       }
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second before polling again
+      // Poll less frequently to reduce load and wait patiently for completion
+      await new Promise((resolve) => setTimeout(resolve, 3000)); // Wait for 3 seconds before polling again
     }
 
     if (!runResult) {
+      console.error("Run did not complete in time. Current run status:", run.status);
       throw new Error("Run did not complete in time");
     }
 
@@ -125,6 +181,8 @@ export async function POST(req: NextApiRequest) {
     }
 
     const apiResponse = { response: assistantResponseText };
+
+    console.log(apiResponse);
 
     return new Response(JSON.stringify(apiResponse), {
       status: 200,
