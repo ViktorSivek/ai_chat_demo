@@ -1,98 +1,202 @@
 [
   {
-    "MTXT": "Od 2.2.2024 00:00 do 01:00; na silnici v obci Kroměříž , délka 70m; nehoda; probíhá vyšetřování nehody, nebezpečí; překážka, která může bránit provozu v celé šířce vozovky nebo její části; havárie vozidla mimo komunikaci",
-    "StartTime": "2024-02-02 00:00:00",
-    "EndTime": "2024-02-02 01:00:00",
-    "OTXT": "nehoda; probíhá vyšetřování nehody, nebezpečí; překážka, která může bránit provozu v celé šířce vozovky nebo její části; havárie vozidla mimo komunikaci",
-    "TXPL": "na silnici v obci Kroměříž , délka 70m",
+    "MTXT": "Od 6.2.2024 11:30 do 13:35; v ulici Hlavní v obci Žulová okres Jeseník; nehoda; 2 x OA bez zranění.",
+    "StartTime": "2024-02-06 11:30:00",
+    "EndTime": "2024-02-06 13:35:00",
+    "OTXT": "nehoda; 2 x OA bez zranění.",
+    "TXPL": "v ulici Hlavní v obci Žulová okres Jeseník",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 23:55 do 2.2.2024 00:55; v ulici Vyšenská v obci Český Krumlov; nehoda; havárie OA do pouliční lampy a plotu, PČR na místo",
-    "StartTime": "2024-02-01 23:55:00",
-    "EndTime": "2024-02-02 00:55:00",
-    "OTXT": "nehoda; havárie OA do pouliční lampy a plotu, PČR na místo",
-    "TXPL": "v ulici Vyšenská v obci Český Krumlov",
+    "MTXT": "Od 6.2.2024 11:30 do 13:35; v ulici M. R. Štefánika v obci Šumperk; nehoda; cyklista x chodec se zraněním.",
+    "StartTime": "2024-02-06 11:30:00",
+    "EndTime": "2024-02-06 13:35:00",
+    "OTXT": "nehoda; cyklista x chodec se zraněním.",
+    "TXPL": "v ulici M. R. Štefánika v obci Šumperk",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 23:45 do 2.2.2024 00:45; na silnici 1423 u obce Čepřovice okres Strakonice; Pozor! 3 padlé stromy; padlé stromy přes silnici",
-    "StartTime": "2024-02-01 23:45:00",
-    "EndTime": "2024-02-02 00:45:00",
-    "OTXT": "Pozor! 3 padlé stromy; padlé stromy přes silnici",
-    "TXPL": "na silnici 1423 u obce Čepřovice okres Strakonice",
+    "MTXT": "Od 6.2.2024 11:30 do 14:35; v ulici Plynární v obci Praha okres území Hlavního města Prahy; křiž. s ul. Argentinská; nehoda autobusu; autobus x tramvaj bez zranění.",
+    "StartTime": "2024-02-06 11:30:00",
+    "EndTime": "2024-02-06 14:35:00",
+    "OTXT": "nehoda autobusu; autobus x tramvaj bez zranění.",
+    "TXPL": "v ulici Plynární v obci Praha okres území Hlavního města Prahy; křiž. s ul. Argentinská",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 23:25 do 2.2.2024 01:30; na silnici 36028 v obci Horní Újezd okres Svitavy; nehoda; probíhá vyšetřování nehody, nebezpečí; Havárie OA, se zraněním.",
-    "StartTime": "2024-02-01 23:25:00",
-    "EndTime": "2024-02-02 01:30:00",
-    "OTXT": "nehoda; probíhá vyšetřování nehody, nebezpečí; Havárie OA, se zraněním.",
-    "TXPL": "na silnici 36028 v obci Horní Újezd okres Svitavy",
+    "MTXT": "Od 6.2.2024 11:20 do 12:20; D5 - 54.9-55.1km na trase Rozvadov - Praha; porouchané vozidlo, zdržení; překážka na vozovce, průjezd se zvýšenou opatrností",
+    "StartTime": "2024-02-06 11:20:00",
+    "EndTime": "2024-02-06 12:20:00",
+    "OTXT": "porouchané vozidlo, zdržení; překážka na vozovce, průjezd se zvýšenou opatrností",
+    "TXPL": "D5 - 54.9-55.1km na trase Rozvadov - Praha",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 23:25 do 2.2.2024 00:25; na silnici u obce Myslín okres Písek; nehoda; havárie OA, 2x zranění, vozidlo na střeše. PČR, HZS a ZZS jedou na místo",
-    "StartTime": "2024-02-01 23:25:00",
-    "EndTime": "2024-02-02 00:25:00",
-    "OTXT": "nehoda; havárie OA, 2x zranění, vozidlo na střeše. PČR, HZS a ZZS jedou na místo",
-    "TXPL": "na silnici u obce Myslín okres Písek",
+    "MTXT": "Od 6.2.2024 11:05 do 13:10; v ulici Heydukova v obci Strakonice; nehoda; probíhá vyšetřování nehody; 2 havarovaná vozidla; 2 x OA bez zranění osob. PČR na místě.",
+    "StartTime": "2024-02-06 11:05:00",
+    "EndTime": "2024-02-06 13:10:00",
+    "OTXT": "nehoda; probíhá vyšetřování nehody; 2 havarovaná vozidla; 2 x OA bez zranění osob. PČR na místě.",
+    "TXPL": "v ulici Heydukova v obci Strakonice",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 23:15 do 2.2.2024 01:20; v ulici Královéhradecká v obci Ústí nad Orlicí; nehoda; probíhá vyšetřování nehody, nebezpečí; Havárie OA, bez zranění",
-    "StartTime": "2024-02-01 23:15:00",
-    "EndTime": "2024-02-02 01:20:00",
-    "OTXT": "nehoda; probíhá vyšetřování nehody, nebezpečí; Havárie OA, bez zranění",
-    "TXPL": "v ulici Královéhradecká v obci Ústí nad Orlicí",
+    "MTXT": "Od 6.2.2024 11:00 do 12:00; 35 - 34.5-35.5km na trase Turnov - Liberec u obce Hodkovice nad Mohelkou okres Liberec; předmět na vozovce, pozor; neprůjezdný levý jízdní pruh; velký pytel mezi JP. Na místo jede PČR.",
+    "StartTime": "2024-02-06 11:00:00",
+    "EndTime": "2024-02-06 12:00:00",
+    "OTXT": "předmět na vozovce, pozor; neprůjezdný levý jízdní pruh; velký pytel mezi JP. Na místo jede PČR.",
+    "TXPL": "35 - 34.5-35.5km na trase Turnov - Liberec u obce Hodkovice nad Mohelkou okres Liberec",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 23:05 do 2.2.2024 01:10; na silnici 409 v obci Planá nad Lužnicí okres Tábor; nehoda; havárie OA, řidič na místě údajně není, PČR jede na místo",
-    "StartTime": "2024-02-01 23:05:00",
-    "EndTime": "2024-02-02 01:10:00",
-    "OTXT": "nehoda; havárie OA, řidič na místě údajně není, PČR jede na místo",
-    "TXPL": "na silnici 409 v obci Planá nad Lužnicí okres Tábor",
+    "MTXT": "Od 6.2.2024 10:55 do 13:00; na silnici 58 u obce Příbor okres Nový Jičín; nehoda; 2 havarovaná vozidla; 2 x OA bez zranění.",
+    "StartTime": "2024-02-06 10:55:00",
+    "EndTime": "2024-02-06 13:00:00",
+    "OTXT": "nehoda; 2 havarovaná vozidla; 2 x OA bez zranění.",
+    "TXPL": "na silnici 58 u obce Příbor okres Nový Jičín",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 23:00 do 2.2.2024 10:00; na silnici 20 u obce Úněšov okres Plzeň-sever; I/20; nadměrný náklad; mimořádná událost, očekávejte silný provoz; NN Plzeň - Lovosice - jedna souprava\nParametry NN: d- 31,00m, š- 3,70m, v- 4,70m, hm-177,50t\nZbývající přepravní trasa: Plzeň – Lovosice\nI/20 - Bezvěrov - Toužim - II/198 - Kozlov - Bochov  I/6 - Herstošice - Bošov D6 - exit 77 - II/226  I/27 - Radíčeves - Žatec - vpravo II/225 - Trnovany - Louny I/28 - Raná -  II/257 Kozly -  I/15 - Libčeves - Třebenice - Lovosice - D8 - exit 45 - II/247 -  Lovosice přístav.",
-    "StartTime": "2024-02-01 23:00:00",
-    "EndTime": "2024-02-02 10:00:00",
-    "OTXT": "nadměrný náklad; mimořádná událost, očekávejte silný provoz; NN Plzeň - Lovosice - jedna souprava\nParametry NN: d- 31,00m, š- 3,70m, v- 4,70m, hm-177,50t\nZbývající přepravní trasa: Plzeň – Lovosice\nI/20 - Bezvěrov - Toužim - II/198 - Kozlov - Bochov  I/6 - Herstošice - Bošov D6 - exit 77 - II/226  I/27 - Radíčeves - Žatec - vpravo II/225 - Trnovany - Louny I/28 - Raná -  II/257 Kozly -  I/15 - Libčeves - Třebenice - Lovosice - D8 - exit 45 - II/247 -  Lovosice přístav.",
-    "TXPL": "na silnici 20 u obce Úněšov okres Plzeň-sever; I/20",
+    "MTXT": "Od 6.2.2024 10:45 do 12:00; D7 - 1.9km na trase Chomutov - Praha; nehoda nákladního vozidla; neprůjezdná zpevněná krajnice; kamion x OA bez zranění, bez úniku kapalin.",
+    "StartTime": "2024-02-06 10:45:00",
+    "EndTime": "2024-02-06 12:00:00",
+    "OTXT": "nehoda nákladního vozidla; neprůjezdná zpevněná krajnice; kamion x OA bez zranění, bez úniku kapalin.",
+    "TXPL": "D7 - 1.9km na trase Chomutov - Praha",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 22:55 do 2.2.2024 01:00; na silnici 11 u obce Bruntál; nehoda; srážka OA se zvěří, bez zranění",
-    "StartTime": "2024-02-01 22:55:00",
-    "EndTime": "2024-02-02 01:00:00",
-    "OTXT": "nehoda; srážka OA se zvěří, bez zranění",
-    "TXPL": "na silnici 11 u obce Bruntál",
+    "MTXT": "Od 6.2.2024 10:45 do 7.2.2024 00:00; v ulici Plzeňská v obci Praha okres území Hlavního města Prahy; P 2197; práce na silnici; kyvadlový provoz jedním jízdním pruhem; oprava železničního železničního přejezdu.",
+    "StartTime": "2024-02-06 10:45:00",
+    "EndTime": "2024-02-07 00:00:00",
+    "OTXT": "práce na silnici; kyvadlový provoz jedním jízdním pruhem; oprava železničního železničního přejezdu.",
+    "TXPL": "v ulici Plzeňská v obci Praha okres území Hlavního města Prahy; P 2197",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 22:20 do 2.2.2024 00:20; na silnici 436 u obce Věžky okres Přerov; mezi Věžkami a Vlkoší; nehoda; OA mimo komunikaci",
-    "StartTime": "2024-02-01 22:20:00",
-    "EndTime": "2024-02-02 00:20:00",
-    "OTXT": "nehoda; OA mimo komunikaci",
-    "TXPL": "na silnici 436 u obce Věžky okres Přerov; mezi Věžkami a Vlkoší",
+    "MTXT": "Od 6.2.2024 10:40 do 12:45; v ulici 1. máje v obci Mnichovo Hradiště okres Mladá Boleslav; nehoda; OA x díra v silnici, bez zranění.",
+    "StartTime": "2024-02-06 10:40:00",
+    "EndTime": "2024-02-06 12:45:00",
+    "OTXT": "nehoda; OA x díra v silnici, bez zranění.",
+    "TXPL": "v ulici 1. máje v obci Mnichovo Hradiště okres Mladá Boleslav",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 22:15 do 2.2.2024 00:20; na silnici 112 u obce Vlašim okres Benešov; nehoda; havárie OA do příkopu, průjezd s opatrností",
-    "StartTime": "2024-02-01 22:15:00",
-    "EndTime": "2024-02-02 00:20:00",
-    "OTXT": "nehoda; havárie OA do příkopu, průjezd s opatrností",
-    "TXPL": "na silnici 112 u obce Vlašim okres Benešov",
+    "MTXT": "Od 6.2.2024 10:15 do 17:15; na silnici 29813 u obce Vysoká nad Labem okres Hradec Králové , délka 299m; uzavřeno, záplavy",
+    "StartTime": "2024-02-06 10:15:00",
+    "EndTime": "2024-02-06 17:15:00",
+    "OTXT": "uzavřeno, záplavy",
+    "TXPL": "na silnici 29813 u obce Vysoká nad Labem okres Hradec Králové , délka 299m",
     "SBEG": {}
   },
   {
-    "MTXT": "Od 1.2.2024 15:15 do 2.2.2024 15:25; na silnici 324 v obci Staré Hradiště okres Pardubice , délka 61m; obec Hradiště na Písku směr Staré Hradiště.; Pozor! Olej na vozovce; očekávejte kluzkou vozovku; probíhají odklízecí práce; rozlitý olej na vozovce.",
-    "StartTime": "2024-02-01 15:15:00",
-    "EndTime": "2024-02-02 15:25:00",
-    "OTXT": "Pozor! Olej na vozovce; očekávejte kluzkou vozovku; probíhají odklízecí práce; rozlitý olej na vozovce.",
-    "TXPL": "na silnici 324 v obci Staré Hradiště okres Pardubice , délka 61m; obec Hradiště na Písku směr Staré Hradiště.",
+    "MTXT": "Od 6.2.2024 10:10 do 13:15; na silnici 57 u obce Opava; směr Opava; porouchané vozidlo, očekávejte zdržení",
+    "StartTime": "2024-02-06 10:10:00",
+    "EndTime": "2024-02-06 13:15:00",
+    "OTXT": "porouchané vozidlo, očekávejte zdržení",
+    "TXPL": "na silnici 57 u obce Opava; směr Opava",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 09:50 do 11:55; na silnici 434 u obce Lipník nad Bečvou okres Přerov; nehoda; havárie vozidla.",
+    "StartTime": "2024-02-06 09:50:00",
+    "EndTime": "2024-02-06 11:55:00",
+    "OTXT": "nehoda; havárie vozidla.",
+    "TXPL": "na silnici 434 u obce Lipník nad Bečvou okres Přerov",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 09:45 do 11:50; v ulici Viaduktová v obci Český Těšín okres Karviná; nehoda; 2 havarovaná vozidla; 2 x OA bez zranění.",
+    "StartTime": "2024-02-06 09:45:00",
+    "EndTime": "2024-02-06 11:50:00",
+    "OTXT": "nehoda; 2 havarovaná vozidla; 2 x OA bez zranění.",
+    "TXPL": "v ulici Viaduktová v obci Český Těšín okres Karviná",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 09:35 do 11:40; D1 - 192.5km na trase Říkovice - Praha; všechny nehody byly odstraněny, nejsou hlášeny žádné další problémy; dodávka s přívěsem x NA bez zranění.",
+    "StartTime": "2024-02-06 09:35:00",
+    "EndTime": "2024-02-06 11:40:00",
+    "OTXT": "všechny nehody byly odstraněny, nejsou hlášeny žádné další problémy; dodávka s přívěsem x NA bez zranění.",
+    "TXPL": "D1 - 192.5km na trase Říkovice - Praha",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 09:30 do 12:30; na silnici 35 u obce Líšnice okres Šumperk; předmět na vozovce, pozor",
+    "StartTime": "2024-02-06 09:30:00",
+    "EndTime": "2024-02-06 12:30:00",
+    "OTXT": "předmět na vozovce, pozor",
+    "TXPL": "na silnici 35 u obce Líšnice okres Šumperk",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 08:45 do 11:45; D1 - 202.9-194.1km na trase Říkovice - Praha; tvorba kolon vozidel",
+    "StartTime": "2024-02-06 08:45:00",
+    "EndTime": "2024-02-06 11:45:00",
+    "OTXT": "tvorba kolon vozidel",
+    "TXPL": "D1 - 202.9-194.1km na trase Říkovice - Praha",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 08:45 do 11:45; D1 - 202.9-194.1km na trase Říkovice - Praha; tvorba kolon vozidel",
+    "StartTime": "2024-02-06 08:45:00",
+    "EndTime": "2024-02-06 11:45:00",
+    "OTXT": "tvorba kolon vozidel",
+    "TXPL": "D1 - 202.9-194.1km na trase Říkovice - Praha",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 08:15 do 15:00; D35 - 257-258.8km na trase Olomouc - Mohelnice; porouchané vozidlo, zdržení; uzavřeno, odklízecí práce",
+    "StartTime": "2024-02-06 08:15:00",
+    "EndTime": "2024-02-06 15:00:00",
+    "OTXT": "porouchané vozidlo, zdržení; uzavřeno, odklízecí práce",
+    "TXPL": "D35 - 257-258.8km na trase Olomouc - Mohelnice",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 08:10 do 7.2.2024 09:10; na silnici 298 u obce Třebechovice pod Orebem okres Hradec Králové , délka 295m; uzavřeno, záplavy; voda na silnici.",
+    "StartTime": "2024-02-06 08:10:00",
+    "EndTime": "2024-02-07 09:10:00",
+    "OTXT": "uzavřeno, záplavy; voda na silnici.",
+    "TXPL": "na silnici 298 u obce Třebechovice pod Orebem okres Hradec Králové , délka 295m",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 06:10 do 7.2.2024 06:15; na silnici 2591 mezi obcemi Vinec a Písková Lhota okres Mladá Boleslav , délka 2.3km; uzavřeno, záplavy; z důvodu zaplavení vozovky uzavřeno",
+    "StartTime": "2024-02-06 06:10:00",
+    "EndTime": "2024-02-07 06:15:00",
+    "OTXT": "uzavřeno, záplavy; z důvodu zaplavení vozovky uzavřeno",
+    "TXPL": "na silnici 2591 mezi obcemi Vinec a Písková Lhota okres Mladá Boleslav , délka 2.3km",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 6.2.2024 06:10 do 7.2.2024 06:00; na silnici 276 u obce Bakov nad Jizerou okres Mladá Boleslav; uzavřeno, záplavy; z důvodu zaplavení vozovky uzavřeno",
+    "StartTime": "2024-02-06 06:10:00",
+    "EndTime": "2024-02-07 06:00:00",
+    "OTXT": "uzavřeno, záplavy; z důvodu zaplavení vozovky uzavřeno",
+    "TXPL": "na silnici 276 u obce Bakov nad Jizerou okres Mladá Boleslav",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 5.2.2024 16:50 do 8.2.2024 00:00; na silnici 31541 v obcích Lukavice a Bohuslavice okres Šumperk , délka 831m; uzavřeno, záplavy; neprůjezdná komunikace",
+    "StartTime": "2024-02-05 16:50:00",
+    "EndTime": "2024-02-08 00:00:00",
+    "OTXT": "uzavřeno, záplavy; neprůjezdná komunikace",
+    "TXPL": "na silnici 31541 v obcích Lukavice a Bohuslavice okres Šumperk , délka 831m",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 5.2.2024 08:15 do 7.2.2024 09:00; na silnici na vjezdu do obce Podolí okres Brno-venkov , délka 429m; neprůjezdné, padlý strom; neprůjezdné, překážka na vozovce; uzavřeno, odklízecí práce; Vyvrácené stromy na vozovce. Na místě HZS.",
+    "StartTime": "2024-02-05 08:15:00",
+    "EndTime": "2024-02-07 09:00:00",
+    "OTXT": "neprůjezdné, padlý strom; neprůjezdné, překážka na vozovce; uzavřeno, odklízecí práce; Vyvrácené stromy na vozovce. Na místě HZS.",
+    "TXPL": "na silnici na vjezdu do obce Podolí okres Brno-venkov , délka 429m",
+    "SBEG": {}
+  },
+  {
+    "MTXT": "Od 5.2.2024 08:15 do 7.2.2024 09:00; na silnici na vjezdu do obce Podolí okres Brno-venkov , délka 429m; neprůjezdné, padlý strom; neprůjezdné, překážka na vozovce; uzavřeno, odklízecí práce; Vyvrácené stromy na vozovce. Na místě HZS.",
+    "StartTime": "2024-02-05 08:15:00",
+    "EndTime": "2024-02-07 09:00:00",
+    "OTXT": "neprůjezdné, padlý strom; neprůjezdné, překážka na vozovce; uzavřeno, odklízecí práce; Vyvrácené stromy na vozovce. Na místě HZS.",
+    "TXPL": "na silnici na vjezdu do obce Podolí okres Brno-venkov , délka 429m",
     "SBEG": {}
   },
   {
