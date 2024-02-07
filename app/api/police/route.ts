@@ -3,6 +3,8 @@ export async function GET(request: Request): Promise<Response> {
     // Get current date and time
     const now = new Date();
 
+    console.log("now", now);
+
     // Format the date and time
     const year = now.getFullYear().toString();
     const month = String(now.getMonth() + 1).padStart(2, "0");
@@ -13,10 +15,16 @@ export async function GET(request: Request): Promise<Response> {
 
     const dateTime = `${year}${month}${day}${hour}${minute}${second}`;
 
+    console.log("dateTime", dateTime);
+
     const url = `https://aplikace.policie.cz/dopravni-informace/GetFile.aspx?dt=${dateTime}`;
     const response = await fetch(url);
 
+    console.log("response" ,response);
+
     const data = await response.text();
+
+    console.log("data" ,data);
 
     return new Response(JSON.stringify({ data }), {
       headers: {
