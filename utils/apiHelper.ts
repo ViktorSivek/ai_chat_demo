@@ -46,32 +46,37 @@ export async function processMessage({ message, assistantId, fileId }: ProcessMe
   }
   
 export async function checkStatusAndRetrieve({ threadId, runId }: CheckStatusParams) {
-    let statusResponse;
-    const timeout = 60000; // 60 seconds for example
-    const startTime = Date.now();
-  
-    while (Date.now() - startTime < timeout) {
-      statusResponse = await fetch("/api/retrieve", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ threadId, runId }),
-      });
-  
-      if (!statusResponse.ok) {
-        throw new Error(`Status check failed: ${statusResponse.status}`);
-      }
-  
-      const statusData = await statusResponse.json();
-  
-      if (statusData.response) {
-        return statusData; // Returns { response: assistantResponseText }
-      }
-  
-      // Wait for a bit before polling again
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+  let statusResponse;
+  const timeout = 60000; // 60 seconds for example
+  const initialDelay = 5000; // Initial delay of 5 seconds
+  const startTime = Date.now();
+
+  // Wait for an initial delay before starting to poll
+  await new Promise((resolve) => setTimeout(resolve, initialDelay));
+
+  while (Date.now() - startTime < timeout - initialDelay) { // Adjust timeout to account for initial delay
+    statusResponse = await fetch("/api/retrieve", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ threadId, runId }),
+    });
+
+    if (!statusResponse.ok) {
+      throw new Error(`Status check failed: ${statusResponse.status}`);
     }
-  
-    throw new Error("Run did not complete in time");
+
+    const statusData = await statusResponse.json();
+
+    if (statusData.response) {
+      return statusData; // Returns { response: assistantResponseText }
+    }
+
+    // Wait for a bit before polling again
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+  }
+
+  throw new Error("Run did not complete in time");
 }
+  
