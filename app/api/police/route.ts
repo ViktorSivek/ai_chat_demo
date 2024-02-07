@@ -19,7 +19,12 @@ export async function GET(request: Request): Promise<Response> {
     const data = await response.text();
 
     return new Response(JSON.stringify({ data }), {
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0"
+      },
     });
   } catch (error) {
     console.error(error);
