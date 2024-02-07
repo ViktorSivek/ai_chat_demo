@@ -16,11 +16,12 @@ export async function GET(request: Request): Promise<Response> {
     const dateTime = `${year}${month}${day}${hour}${minute}${second}`;
 
     console.log("dateTime", dateTime);
+    console.error("whatttt");
 
     const url = `https://aplikace.policie.cz/dopravni-informace/GetFile.aspx?dt=${dateTime}`;
     const response = await fetch(url);
 
-    console.log("response" ,response);
+    // console.log("response" ,response);
 
     const data = await response.text();
 
