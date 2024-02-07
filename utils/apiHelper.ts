@@ -48,7 +48,7 @@ export async function processMessage({ message, assistantId, fileId }: ProcessMe
 export async function checkStatusAndRetrieve({ threadId, runId }: CheckStatusParams) {
   let statusResponse;
   const timeout = 60000; // 60 seconds for example
-  const initialDelay = 5000; // Initial delay of 5 seconds
+  const initialDelay = 10000; // Initial delay of 5 seconds
   const startTime = Date.now();
 
   // Wait for an initial delay before starting to poll
