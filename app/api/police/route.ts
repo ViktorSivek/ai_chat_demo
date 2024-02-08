@@ -30,18 +30,13 @@ export async function GET(request: NextRequest) {
 
     console.log("data" ,data);
 
-    // return new Response(JSON.stringify({ data }), {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Cache-Control": "no-cache, no-store, must-revalidate",
-    //     "Pragma": "no-cache",
-    //     "Expires": "0"
-    //   },
-    // });
-
-    return new Response(JSON.stringify({ response: data }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
+    return new Response(JSON.stringify({ data }), {
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0"
+      },
     });
   } catch (error) {
     console.error(error);
