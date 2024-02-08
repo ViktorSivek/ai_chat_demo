@@ -1,4 +1,6 @@
 export async function GET(request: Request): Promise<Response> {
+
+  console.log("in geeettttt requesttt");
   try {
     // Get current date and time
     const now = new Date();

@@ -17,9 +17,15 @@ const Table: React.FC<TableProps> = ({ onDataFetch }) => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`/api/police`, { method: "GET" });
+      console.log(" Beforeeeeeeeeeeeeeeee Fetching data");
+      const response = await fetch(`/api/police`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const { data } = await response.json();
-      console.log("police data before parse", data);
+      console.log("police response before parse", response);
       const parsedItems = await parseXmlAndExtractTag(data);
       setparsedData(parsedItems);
       const jsonString = JSON.stringify(parsedItems, null, 2);
