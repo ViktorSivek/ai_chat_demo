@@ -1,4 +1,6 @@
-export async function GET(request: Request): Promise<Response> {
+import type { NextRequest } from "next/server";
+
+export async function GET(request: NextRequest) {
 
   console.log("in geeettttt requesttt");
   try {
@@ -28,13 +30,18 @@ export async function GET(request: Request): Promise<Response> {
 
     console.log("data" ,data);
 
-    return new Response(JSON.stringify({ data }), {
-      headers: {
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        "Pragma": "no-cache",
-        "Expires": "0"
-      },
+    // return new Response(JSON.stringify({ data }), {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Cache-Control": "no-cache, no-store, must-revalidate",
+    //     "Pragma": "no-cache",
+    //     "Expires": "0"
+    //   },
+    // });
+
+    return new Response(JSON.stringify({ response: data }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
     console.error(error);
