@@ -1,8 +1,13 @@
-import type { NextRequest } from "next/server";
-
-export async function GET(request: NextRequest) {
+export async function GET(request: Request): Promise<Response> {
 
   console.log("in geeettttt requesttt");
+
+  console.log("In GET request");
+
+  // Optionally, extract the timestamp from the query parameters if needed
+  const url = new URL(request.url);
+  const timestamp = url.searchParams.get("timestamp");
+  console.log("Request timestamp", timestamp);
   try {
     // Get current date and time
     const now = new Date();

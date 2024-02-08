@@ -17,8 +17,10 @@ const Table: React.FC<TableProps> = ({ onDataFetch }) => {
 
   const fetchData = async () => {
     try {
-      console.log(" Beforeeeeeeeeeeeeeeee Fetching data");
-      const response = await fetch(`/api/police`, {
+      console.log("Before fetching data");
+      // Append a timestamp to the request URL
+      const timestamp = new Date().getTime();
+      const response = await fetch(`/api/police?timestamp=${timestamp}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
