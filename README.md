@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Doprava
+
+AI Doprava is a cutting-edge demo project that leverages the power of Next.js, TypeScript, and Tailwind CSS, with components from Shadcn/UI, to provide real-time information from the Czech police regarding Czech roads directly through an interactive chatbot. This project integrates with the OpenAI API for natural language processing and uses Clerk for authentication, ensuring secure access to the application. Deployed on Vercel, AI Doprava aims to make road information from the Czech Republic easily accessible and interactive.
+
+## Demo
+
+Experience AI Doprava in action:
+- **Domain:** [https://ai-chat-demo-delta.vercel.app/](https://ai-chat-demo-delta.vercel.app/)
+- **Demo Account:**
+  - Username: `demouser`
+  - Password: `demopassword`
+
+_Please note: The OpenAI API is a paid service, and this demo is intended for learning and demonstration purposes. We kindly ask you to use the demo account judiciously to avoid unnecessary API costs._
+
+## Features
+
+- **Real-time Road Information:** Fetches and visualizes the latest road conditions and incidents reported by the Czech police.
+- **Interactive Chatbot:** Communicate with the AI to ask questions and receive updates about road conditions in the Czech Republic.
+- **Secure Authentication:** Utilizes Clerk for secure user authentication.
+- **Modern Tech Stack:** Built with Next.js, TypeScript, and Tailwind CSS for a responsive and user-friendly interface.
+- **Deployment:** Fully deployed on Vercel for high availability and performance.
+
+## Technology Stack
+
+- **Frontend:** Next.js, TypeScript, Tailwind CSS, Shadcn/UI for UI components
+- **Backend:** Connected to the OpenAI API for processing natural language queries
+- **Authentication:** Clerk
+- **Deployment:** Vercel
 
 ## Getting Started
 
-First, run the development server:
+To get started with AI Doprava, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the repository**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   git clone https://github.com/ViktorSivek/ai_chat_demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Install dependencies**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   npm install
 
-## Learn More
+3. **Set up environment variables**
 
-To learn more about Next.js, take a look at the following resources:
+   Create a .env.local file in the root directory and add your OpenAI API key and Clerk         credentials:
+   ```bash
+   NEXT_PUBLIC_OPENAI_API_KEY=your_openai_api_key
+   NEXT_PUBLIC_CLERK_FRONTEND_API=your_clerk_frontend_api
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Run the development server**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   Open http://localhost:3000 with your browser to see the result.
+   ```bash
+   npm run dev
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+AI Doprava is open for contributions. Whether you're looking to fix bugs, improve the documentation, or add new features, we welcome your pull requests and issues on GitHub.
+   
