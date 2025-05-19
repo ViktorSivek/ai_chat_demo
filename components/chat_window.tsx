@@ -42,21 +42,58 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
         });
 
         if (!response.ok) {
-          const errorData = await response
-            .json()
-            .catch(() => ({ error: "Unknown error" }));
-          throw new Error(
-            `Error: ${response.status} - ${errorData.error || response.statusText}`,
-          );
+          // Try to parse error as JSON, as our server sends { error: "..." }
+          let errorText = `Error: ${response.status} - ${response.statusText}`;
+          try {
+            const errorData = await response.json(); // Server sends JSON for errors
+            if (errorData.error) {
+              errorText = `Error: ${response.status} - ${errorData.error}`;
+            }
+          } catch (e) {
+            // If response.json() fails (e.g. network error before server responds, or server sends non-JSON error)
+            console.warn(
+              "Could not parse error response as JSON, using status text.",
+              e,
+            );
+          }
+          throw new Error(errorText);
         }
 
-        const responseData = await response.json();
-        console.log("Response data received:", responseData);
+        // Handle the streamed response
+        if (!response.body) {
+          throw new Error("Response body is null or undefined.");
+        }
 
-        setChatHistory((chatHistory) => [
-          ...chatHistory,
-          { type: "response", text: responseData.response },
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        // Add an empty response message to chatHistory that we will update
+        setChatHistory((prevHistory) => [
+          ...prevHistory,
+          { type: "response", text: "" },
         ]);
+
+        // Read the stream
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) {
+            break;
+          }
+          const chunk = decoder.decode(value, { stream: true });
+
+          // Update the last message in chatHistory (which is the assistant's response)
+          setChatHistory((prevHistory) => {
+            const newHistory = [...prevHistory];
+            // Ensure we are updating the correct (last) message and it's a response type
+            if (
+              newHistory.length > 0 &&
+              newHistory[newHistory.length - 1].type === "response"
+            ) {
+              newHistory[newHistory.length - 1].text += chunk;
+            }
+            return newHistory;
+          });
+        }
 
         // Clear the input after sending
         setMessage("");
