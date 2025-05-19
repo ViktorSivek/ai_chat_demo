@@ -1,18 +1,17 @@
 export async function GET(request: Request): Promise<Response> {
+  // console.log("in geeettttt requesttt");
 
-  console.log("in geeettttt requesttt");
-
-  console.log("In GET request");
+  // console.log("In GET request");
 
   // Optionally, extract the timestamp from the query parameters if needed
   const url = new URL(request.url);
   const timestamp = url.searchParams.get("timestamp");
-  console.log("Request timestamp", timestamp);
+  // console.log("Request timestamp", timestamp);
   try {
     // Get current date and time
     const now = new Date();
 
-    console.log("now", now);
+    // console.log("now", now);
 
     // Format the date and time
     const year = now.getFullYear().toString();
@@ -24,7 +23,7 @@ export async function GET(request: Request): Promise<Response> {
 
     const dateTime = `${year}${month}${day}${hour}${minute}${second}`;
 
-    console.log("dateTime", dateTime);
+    // console.log("dateTime", dateTime);
 
     const url = `https://aplikace.policie.cz/dopravni-informace/GetFile.aspx?dt=${dateTime}`;
     const response = await fetch(url);
@@ -33,14 +32,14 @@ export async function GET(request: Request): Promise<Response> {
 
     const data = await response.text();
 
-    console.log("data" ,data);
+    // console.log("data" ,data);
 
     return new Response(JSON.stringify({ data }), {
       headers: {
         "Content-Type": "application/json",
         "Cache-Control": "no-cache, no-store, must-revalidate",
-        "Pragma": "no-cache",
-        "Expires": "0"
+        Pragma: "no-cache",
+        Expires: "0",
       },
     });
   } catch (error) {

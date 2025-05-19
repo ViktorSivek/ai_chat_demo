@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { setupAssistant, processMessage, checkStatusAndRetrieve } from '@/utils/apiHelper';
+// import { setupAssistant, processMessage, checkStatusAndRetrieve } from '@/utils/apiHelper'; // No longer needed
 
 type ChatMessage = {
   type: "question" | "response";
@@ -33,16 +33,24 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
       console.log("co submituju pred api fetch", message);
 
       try {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message, jsonData }),
+        });
 
-        // Step 1: Setup
-        const { assistantId, fileId } = await setupAssistant(jsonData);
+        if (!response.ok) {
+          const errorData = await response
+            .json()
+            .catch(() => ({ error: "Unknown error" }));
+          throw new Error(
+            `Error: ${response.status} - ${errorData.error || response.statusText}`,
+          );
+        }
 
-        // Step 2: Process Message
-        const { threadId, runId } = await processMessage({ message, assistantId, fileId });
-
-        // Step 3: Check Status and Retrieve Response
-        const responseData = await checkStatusAndRetrieve({ threadId, runId });
-
+        const responseData = await response.json();
         console.log("Response data received:", responseData);
 
         setChatHistory((chatHistory) => [
@@ -52,32 +60,16 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
 
         // Clear the input after sending
         setMessage("");
-
-
-        // const response = await fetch("/api/chat", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({ message, jsonData }),
-        // });
-
-        // if (!response.ok) {
-        //   throw new Error(`Error: ${response.status}`);
-        // }
-
-        // const responseData = await response.json();
-        // console.log("Response data received:", responseData);
-
-        // setChatHistory((chatHistory) => [
-        //   ...chatHistory,
-        //   { type: "response", text: responseData.response },
-        // ]);
-
-        // // Clear the input after sending
-        // setMessage("");
       } catch (error) {
         console.error("Failed to send message:", error);
+        // Optionally, display error to user
+        setChatHistory((prevHistory) => [
+          ...prevHistory,
+          {
+            type: "response",
+            text: `Error: ${error instanceof Error ? error.message : "Could not send message."}`,
+          },
+        ]);
       } finally {
         setIsLoading(false); // End loading
       }
@@ -116,8 +108,11 @@ const Chat_window: React.FC<ChatWindowProps> = ({ jsonData }) => {
             value={message}
             onChange={handleMessageChange}
           />
-          <button className="ml-3 rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600" disabled={isLoading}>
-            {isLoading ? 'Sending...' : 'Send'}
+          <button
+            className="ml-3 rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+            disabled={isLoading}
+          >
+            {isLoading ? "Sending..." : "Send"}
           </button>
         </form>
       </div>

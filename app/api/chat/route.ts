@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     const decodedBody = new TextDecoder().decode(body.value);
     let { message, jsonData } = JSON.parse(decodedBody);
     const sendingData = { message, jsonData };
-    console.log("sendingData", sendingData);
+    // console.log("sendingData", sendingData);
 
     if (!message) {
       return new Response(JSON.stringify({ error: "Message is empty" }), {
@@ -37,56 +37,44 @@ export async function POST(request: NextRequest) {
     if (!assistantId) {
       const assistant = await openai.beta.assistants.create({
         instructions:
-          "You are a driving support chatbot. Based on provided json data about driving incidents provided by police.  Use your knowledge base to best respond to user queries.",
-        model: "gpt-4-turbo-preview",
-        tools: [{ type: "retrieval" }],
+          "You are a driving support chatbot. Based on provided json data about driving incidents provided by police, provide a concise and clear summary suitable for a radio broadcast. Do not include any file citations or source annotations (e.g., 【...†...】) in your response. Focus on delivering a clean, readable text.",
+        model: "gpt-4o-mini",
+        tools: [{ type: "file_search" }],
       });
       assistantId = assistant.id;
       process.env.ASSISTANT_ID = assistantId; // Store the assistant ID for future use
     }
 
-    // Retrieve the list of files currently attached to the assistant
-    const assistantFiles = await openai.beta.assistants.files.list(assistantId);
+    // File handling will now be done via tool_resources in the run
+    // So, we remove the direct assistant file management here.
 
-    console.log("assistantFiles", assistantFiles);
-
-    // Delete the old files
-    for (const file of assistantFiles.data) {
-      console.log("delete", file);
-      await openai.beta.assistants.files.del(assistantId, file.id);
-    }
-
-
-
-
-
+    let newFile: OpenAI.Files.FileObject | undefined = undefined;
     try {
-      const fs = require('fs');
+      const fs = require("fs");
 
-      const filename = 'tempJsonData.json';
+      const filename = "tempJsonData.json";
       const tempFilePath = `/tmp/${filename}`;
 
-      fs.writeFileSync(tempFilePath, jsonData);
+      // Ensure jsonData is stringified if it's an object
+      const jsonDataString =
+        typeof jsonData === "string" ? jsonData : JSON.stringify(jsonData);
+      fs.writeFileSync(tempFilePath, jsonDataString);
 
-      const newFile = await openai.files.create({
+      newFile = await openai.files.create({
+        // Assign to the outer scope newFile
         file: fs.createReadStream(tempFilePath),
         purpose: "assistants",
       });
 
       fs.unlinkSync(tempFilePath);
 
-      console.log("newFile" ,newFile);
+      // console.log("newFile", newFile);
 
-      await openai.beta.assistants.files.create(assistantId, {
-        file_id: newFile.id,
-      });
-
-
+      // We no longer attach the file directly to the assistant here.
+      // It will be passed in tool_resources during run creation.
     } catch (error) {
-        console.error("File operation or OpenAI API error:", error);
+      console.error("File operation or OpenAI API error:", error);
     }
-
-
 
     // try {
 
@@ -115,21 +103,24 @@ export async function POST(request: NextRequest) {
 
     const thread = await openai.beta.threads.create();
 
-    console.log("thred", thread);
+    // console.log("thred", thread);
 
     const threadMessage = await openai.beta.threads.messages.create(thread.id, {
       role: "user",
       content: message,
+      attachments: newFile
+        ? [{ file_id: newFile.id, tools: [{ type: "file_search" }] }]
+        : [],
     });
 
-    console.log("threadMessage", threadMessage);
+    // console.log("threadMessage", threadMessage);
 
     // Create the run
     const run = await openai.beta.threads.runs.create(thread.id, {
       assistant_id: assistantId,
     });
 
-    console.log("run", run);
+    // console.log("run", run);
 
     // Increase timeout to 60 seconds for more leeway
     const timeout = 60000; // 60 seconds timeout
@@ -137,7 +128,10 @@ export async function POST(request: NextRequest) {
 
     let runResult;
     while (Date.now() - startTime < timeout) {
-      const currentRun = await openai.beta.threads.runs.retrieve(thread.id, run.id);
+      const currentRun = await openai.beta.threads.runs.retrieve(
+        thread.id,
+        run.id,
+      );
       if (currentRun.status === "completed") {
         runResult = currentRun;
         break; // Exit the loop if the run is completed
@@ -150,7 +144,10 @@ export async function POST(request: NextRequest) {
     }
 
     if (!runResult) {
-      console.error("Run did not complete in time. Current run status:", run.status);
+      console.error(
+        "Run did not complete in time. Current run status:",
+        run.status,
+      );
       throw new Error("Run did not complete in time");
     }
 
@@ -182,7 +179,7 @@ export async function POST(request: NextRequest) {
 
     const apiResponse = { response: assistantResponseText };
 
-    console.log(apiResponse);
+    // console.log(apiResponse);
 
     return new Response(JSON.stringify(apiResponse), {
       status: 200,
