@@ -2,12 +2,41 @@ import OpenAI from "openai";
 import * as dotenv from "dotenv";
 import type { NextRequest } from "next/server";
 import fs from "fs";
+import { Stream } from "openai/streaming"; // Import Stream type
 
 dotenv.config();
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+// Helper to create a ReadableStream from the OpenAI stream
+function OpenAIStream(
+  openaiStream: AsyncIterable<OpenAI.Beta.AssistantStreamEvent>,
+) {
+  const encoder = new TextEncoder();
+  return new ReadableStream({
+    async start(controller) {
+      for await (const event of openaiStream) {
+        if (event.event === "thread.message.delta") {
+          const chunk = event.data.delta.content?.[0];
+          if (chunk && chunk.type === "text" && chunk.text?.value) {
+            controller.enqueue(encoder.encode(chunk.text.value));
+          }
+        } else if (event.event === "thread.run.failed") {
+          console.error("Run failed:", event.data);
+          controller.error(new Error("Assistant run failed"));
+          break;
+        }
+      }
+      controller.close();
+    },
+    async cancel() {
+      // await openaiStream.abort(); // Removed as 'abort' does not exist on type 'Stream<AssistantStreamEvent>'
+      console.log("Stream cancelled by client.");
+    },
+  });
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,7 +49,7 @@ export async function POST(request: NextRequest) {
     const body = await request.body.getReader().read();
     const decodedBody = new TextDecoder().decode(body.value);
     let { message, jsonData } = JSON.parse(decodedBody);
-    const sendingData = { message, jsonData };
+    // const sendingData = { message, jsonData }; // This line seems unused, can be removed
     // console.log("sendingData", sendingData);
 
     if (!message) {
@@ -49,31 +78,28 @@ export async function POST(request: NextRequest) {
     // So, we remove the direct assistant file management here.
 
     let newFile: OpenAI.Files.FileObject | undefined = undefined;
-    try {
-      const fs = require("fs");
+    if (jsonData) {
+      // Check if jsonData is provided
+      try {
+        // const fs = require("fs"); // fs is already imported at the top
 
-      const filename = "tempJsonData.json";
-      const tempFilePath = `/tmp/${filename}`;
+        const filename = "tempJsonData.json";
+        const tempFilePath = `/tmp/${filename}`; // Use /tmp for Vercel serverless functions
 
-      // Ensure jsonData is stringified if it's an object
-      const jsonDataString =
-        typeof jsonData === "string" ? jsonData : JSON.stringify(jsonData);
-      fs.writeFileSync(tempFilePath, jsonDataString);
+        const jsonDataString =
+          typeof jsonData === "string" ? jsonData : JSON.stringify(jsonData);
+        fs.writeFileSync(tempFilePath, jsonDataString);
 
-      newFile = await openai.files.create({
-        // Assign to the outer scope newFile
-        file: fs.createReadStream(tempFilePath),
-        purpose: "assistants",
-      });
+        newFile = await openai.files.create({
+          file: fs.createReadStream(tempFilePath),
+          purpose: "assistants",
+        });
 
-      fs.unlinkSync(tempFilePath);
-
-      // console.log("newFile", newFile);
-
-      // We no longer attach the file directly to the assistant here.
-      // It will be passed in tool_resources during run creation.
-    } catch (error) {
-      console.error("File operation or OpenAI API error:", error);
+        fs.unlinkSync(tempFilePath); // Clean up the temporary file
+      } catch (error) {
+        console.error("File operation or OpenAI API error:", error);
+        // Potentially return an error response here if file handling is critical
+      }
     }
 
     // try {
@@ -105,7 +131,8 @@ export async function POST(request: NextRequest) {
 
     // console.log("thred", thread);
 
-    const threadMessage = await openai.beta.threads.messages.create(thread.id, {
+    await openai.beta.threads.messages.create(thread.id, {
+      // Removed threadMessage variable as it's not used later
       role: "user",
       content: message,
       attachments: newFile
@@ -115,76 +142,20 @@ export async function POST(request: NextRequest) {
 
     // console.log("threadMessage", threadMessage);
 
-    // Create the run
-    const run = await openai.beta.threads.runs.create(thread.id, {
+    // Create the run and get the stream
+    // Note: The SDK might offer openai.beta.threads.runs.createAndStream for a more direct approach
+    const runStream = openai.beta.threads.runs.stream(thread.id, {
       assistant_id: assistantId,
     });
 
-    // console.log("run", run);
+    // The polling loop and subsequent message retrieval are no longer needed.
+    // We will stream the response directly.
 
-    // Increase timeout to 60 seconds for more leeway
-    const timeout = 60000; // 60 seconds timeout
-    const startTime = Date.now();
-
-    let runResult;
-    while (Date.now() - startTime < timeout) {
-      const currentRun = await openai.beta.threads.runs.retrieve(
-        thread.id,
-        run.id,
-      );
-      if (currentRun.status === "completed") {
-        runResult = currentRun;
-        break; // Exit the loop if the run is completed
-      } else if (currentRun.status === "failed") {
-        console.error("Run failed with error:", currentRun.last_error);
-        throw new Error("Run failed");
-      }
-      // Poll less frequently to reduce load and wait patiently for completion
-      await new Promise((resolve) => setTimeout(resolve, 3000)); // Wait for 3 seconds before polling again
-    }
-
-    if (!runResult) {
-      console.error(
-        "Run did not complete in time. Current run status:",
-        run.status,
-      );
-      throw new Error("Run did not complete in time");
-    }
-
-    // Retrieve the messages from the thread
-    const threadMessages = await openai.beta.threads.messages.list(thread.id);
-
-    // Find the assistant's response among the messages
-    const assistantResponse = threadMessages.data.find(
-      (msg) => msg.role === "assistant",
-    );
-
-    let assistantResponseText = "No response from assistant."; // Default response
-
-    if (assistantResponse && assistantResponse.content) {
-      // Extract text from each content element
-      assistantResponseText = assistantResponse.content
-        .map((contentItem) => {
-          if (
-            contentItem.type === "text" &&
-            contentItem.text &&
-            contentItem.text.value
-          ) {
-            return contentItem.text.value; // Safely access the 'value' property
-          }
-          return "";
-        })
-        .join(" "); // Join multiple text elements with space
-    }
-
-    const apiResponse = { response: assistantResponseText };
-
-    // console.log(apiResponse);
-
-    return new Response(JSON.stringify(apiResponse), {
-      status: 200,
+    // Return the stream
+    return new Response(OpenAIStream(runStream), {
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain; charset=utf-8", // Or application/octet-stream if sending binary
+        "X-Content-Type-Options": "nosniff", // Good practice for security
       },
     });
   } catch (error) {
@@ -192,6 +163,7 @@ export async function POST(request: NextRequest) {
     if (error instanceof Error) {
       errorMessage = error.message;
     }
+    console.error("API Route Error:", error); // Log the full error on the server for debugging
     return new Response(JSON.stringify({ error: errorMessage }), {
       status: 500,
       headers: {
