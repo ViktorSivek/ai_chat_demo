@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     const decodedBody = new TextDecoder().decode(body.value);
     let { message, jsonData } = JSON.parse(decodedBody);
     const sendingData = { message, jsonData };
-    console.log("sendingData", sendingData);
+    // console.log("sendingData", sendingData);
 
     if (!message) {
       return new Response(JSON.stringify({ error: "Message is empty" }), {
@@ -37,8 +37,8 @@ export async function POST(request: NextRequest) {
     if (!assistantId) {
       const assistant = await openai.beta.assistants.create({
         instructions:
-          "You are a driving support chatbot. Based on provided json data about driving incidents provided by police.  Use your knowledge base to best respond to user queries.",
-        model: "gpt-4-turbo",
+          "You are a driving support chatbot. Based on provided json data about driving incidents provided by police, provide a concise and clear summary suitable for a radio broadcast. Do not include any file citations or source annotations (e.g., 【...†...】) in your response. Focus on delivering a clean, readable text.",
+        model: "gpt-4o-mini",
         tools: [{ type: "file_search" }],
       });
       assistantId = assistant.id;
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
 
       fs.unlinkSync(tempFilePath);
 
-      console.log("newFile", newFile);
+      // console.log("newFile", newFile);
 
       // We no longer attach the file directly to the assistant here.
       // It will be passed in tool_resources during run creation.
@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
 
     const thread = await openai.beta.threads.create();
 
-    console.log("thred", thread);
+    // console.log("thred", thread);
 
     const threadMessage = await openai.beta.threads.messages.create(thread.id, {
       role: "user",
@@ -113,14 +113,14 @@ export async function POST(request: NextRequest) {
         : [],
     });
 
-    console.log("threadMessage", threadMessage);
+    // console.log("threadMessage", threadMessage);
 
     // Create the run
     const run = await openai.beta.threads.runs.create(thread.id, {
       assistant_id: assistantId,
     });
 
-    console.log("run", run);
+    // console.log("run", run);
 
     // Increase timeout to 60 seconds for more leeway
     const timeout = 60000; // 60 seconds timeout
@@ -179,7 +179,7 @@ export async function POST(request: NextRequest) {
 
     const apiResponse = { response: assistantResponseText };
 
-    console.log(apiResponse);
+    // console.log(apiResponse);
 
     return new Response(JSON.stringify(apiResponse), {
       status: 200,
